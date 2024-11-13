@@ -1,0 +1,47 @@
+// general list of customers
+.customers {
+   &__list {
+      @media screen and (min-width: 480px) {
+         display: none;
+      }
+      display: flex;
+      flex-direction: column;
+      padding: 30px 16px;
+   }
+   &__item {
+      border-radius: 4px;
+      padding: 8px 10px;
+
+      &:not(:last-child) {
+         margin-bottom: 20px;
+      }
+   }
+}
+// for status
+.item {
+   &--active {
+      @include active;
+   }
+   &--inactive {
+      @include inactive;
+   }
+}
+
+//info of customer
+.data-list {
+   &__item {
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: space-between;
+      border-bottom: 1px solid $main-bg;
+   }
+   &__title {
+      font-size: 12px;
+      font-weight: $fontMedium;
+   }
+   &__info {
+      font-size: 12px;
+      font-weight: $fontMedium;
+   }
+}

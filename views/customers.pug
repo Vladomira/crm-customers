@@ -1,5 +1,6 @@
 include mixins/_tableRow
 include mixins/_tablePagination
+include mixins/_customer-card
 
  
 section.customers__section
@@ -27,6 +28,11 @@ section.customers__section
           each customer in customers
             +tableRow(customer)
       
+
+      ul.customers__list 
+       each customer in customers
+        +customerCard(customer, userInfoArr)
+        
       +tablePagination(pages)
 
       

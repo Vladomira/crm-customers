@@ -1,0 +1,22 @@
+mixin customerCard(customer, arr)
+ li.customers__item(class=customer.status ==="Active"? 'item--active':'item--inactive') 
+  ul.data-list 
+   li.data-list__item 
+    p.data-list__title Customer Name 
+    p.data-list__info #{customer.name}
+
+   li.data-list__item  
+    p.data-list__title Company
+    p.data-list__info #{customer.company}
+
+   li.data-list__item  
+    p.data-list__title Email 
+    p.data-list__info #{customer.email}
+
+   li.data-list__item  
+    p.data-list__title Country
+    p.data-list__info #{customer.country}
+         
+
+
+

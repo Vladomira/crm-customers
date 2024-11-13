@@ -135,6 +135,10 @@
    width: 100%;
    margin-top: 40px;
 
+   @media screen and (max-width: 480px) {
+      display: none;
+   }
+
    &__header-category {
       font-size: $font-size-normal;
       font-weight: $fontMedium;
@@ -170,16 +174,12 @@
       &--active {
          @include cell-style;
          @include status;
-         background-color: $active-bg;
-         color: $accent-grren;
-         border: 1px solid $active-green-border;
+         @include active;
       }
       &--inactive {
          @include cell-style;
          @include status;
-         background-color: $inactive-bg;
-         color: $accent-red;
-         border: 1px solid $accent-red;
+         @include inactive;
       }
    }
    &__info-row {

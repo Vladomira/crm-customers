@@ -33,3 +33,14 @@ $table-text: #292d32;
 
 $navy: #5932ea;
 $black: #000000;
+
+@mixin active {
+   background-color: $active-bg;
+   color: $accent-grren;
+   border: 1px solid $active-green-border;
+}
+@mixin inactive {
+   background-color: $inactive-bg;
+   color: $accent-red;
+   border: 1px solid $accent-red;
+}
