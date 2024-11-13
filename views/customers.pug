@@ -1,0 +1,35 @@
+include mixins/_tableRow
+include mixins/_tablePagination
+
+ 
+section.customers__section
+  .container
+    h1.greeting Hello #{user}👋🏼,
+    .customers__wrapper
+      .customers__header 
+       div 
+        h2.customers__title All Customers
+        p.customers__members Active Members
+       div.search-box 
+        input(class='customers__search', placeholder="Search", type="text", id='search')  
+         
+      
+      table.table
+        thead
+          tr.table__header
+            th.table__header-category Customer name
+            th.table__header-category Company
+            th.table__header-category.user-info Phone number
+            th.table__header-category.user-info Email
+            th.table__header-category.user-info Country
+            th.table__header-category Status
+        tbody
+          each customer in customers
+            +tableRow(customer)
+      
+      +tablePagination(pages)
+
+      
+       
+
+                                

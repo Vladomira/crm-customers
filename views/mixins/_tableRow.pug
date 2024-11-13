@@ -1,0 +1,38 @@
+mixin tableRow(customer)
+    tr.table__info-row
+        td.table__info-cell #{customer.name}
+        td.table__info-cell #{customer.company}
+        td.table__info-cell.user-info #{customer.phone}
+        td.table__info-cell.user-info #{customer.email}
+        td.table__info-cell.user-info #{customer.country}
+        td
+         div.user-status
+          button(class=customer.status === "Active" ? 'table__status--active' : 'table__status--inactive') #{customer.status}
+          script.
+            function openDetails(id) { 
+              const detailsBox = document.getElementById(`user-details-${id.slice(1)}`);
+              detailsBox.classList.add('open'); 
+
+              const infoBtn= document.getElementById('details');
+              infoBtn.classList.add('close');
+            }
+          button#details.details__button(onclick=`openDetails('#${customer.name}')`)   
+            svg.details__icon
+             use(href='/assets/icons/sidebar.svg#info' )
+
+          script.
+            function closeDetails(id) { 
+              const detailsBox = document.getElementById(`user-details-${id.slice(1)}`);
+              detailsBox.classList.remove('open'); 
+
+              const infoBtn= document.getElementById('details');
+              infoBtn.classList.remove('close');
+            }   
+          div.user-details(onclick=`closeDetails('#${customer.name}')`, id=`user-details-${customer.name}`)
+            p.user-details__country #{customer.country}
+            div.user-details__contacts
+             p #{customer.phone}
+             p #{customer.email}
+          
+
+        

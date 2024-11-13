@@ -1,0 +1,27 @@
+.sidebar#sidebar
+ div
+  div.sidebar__header
+   svg.logo__image
+      use(href='/assets/icons/sidebar.svg#logo')
+   h1.logo__title Dashboard 
+    span.logo__version v.01
+
+  ul.menu__list  
+   - const sidebarItems = ["Dashboard", "Product", "Customers", "Income", "Promote", "Help"]
+   each item in sidebarItems
+     li.menu__item
+      svg.menu__item-icon
+        use(href=`/assets/icons/sidebar.svg#${item.toLowerCase()}`)
+
+      p.menu__item-text #{item}
+      
+      svg.menu__item-arrow
+        use(href='/assets/icons/sidebar.svg#sidebar-arrow')
+
+ div.user-box
+    img.user-box_img(alt='user' src='/assets/images/evano.png')
+    div.user-box__info
+     p.user-box__name #{user} 
+     p.user-box__position #{position}
+
+

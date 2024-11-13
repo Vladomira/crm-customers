@@ -1,0 +1,69 @@
+@mixin position-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.pagination {
+   &__info {
+      display: flex;
+      justify-content: space-between;
+
+      padding: 32px 40px 41px 38px;
+      padding-left: 38px;
+
+      @media screen and (max-width: 1199px) {
+         flex-direction: column;
+      }
+   }
+
+   &__desc {
+      font-size: $font-size-normal;
+      font-weight: $fontMedium;
+      color: $light-grey;
+   }
+   &__buttons-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      @media screen and (max-width: 1199px) {
+         margin-top: 15px;
+      }
+   }
+   &__item {
+      @include position-center;
+   }
+   &__btn {
+      @include position-center;
+
+      height: 24px;
+      width: 26px;
+      padding: 6px;
+      border: 1px solid $table-bottom;
+      background-color: $btn-light-bg;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 250ms $cubic;
+
+      &--active {
+         background-color: $navy;
+         color: white;
+      }
+      &:hover,
+      &:focus {
+         border: 1px solid $navy;
+         background-color: $table-bottom;
+         color: $navy;
+      }
+   }
+
+   &__img {
+      width: 8px;
+      height: 12px;
+   }
+}
+.btn--active {
+   background-color: $navy;
+   color: white;
+}

@@ -1,0 +1,53 @@
+doctype html
+html(lang="en")
+  head
+    title Glivera team
+    meta(charset='UTF-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap")
+    link(rel='stylesheet', type='text/css', href="/main.min.css")  
+    
+  body
+   header.mobile-header
+     .container 
+       div.mobile-header__wrapper
+        div.sidebar__header
+          svg.logo__image
+           use(href='/assets/icons/sidebar.svg#logo')
+          h1.logo__title Dashboard 
+           span.logo__version v.01
+        
+        script.
+          function addIsOpen() {
+            const sidebar = document.getElementById("mobile-sidebar");
+            sidebar.classList.add("is-open");
+          }
+          
+        button.burger-menu(onclick='addIsOpen()') 
+          svg.burger-menu__icon
+           use(href='/assets/icons/sidebar.svg#burger-menu') 
+    
+   - var included = false;
+    script.
+      function closeSidebar() { 
+        const sidebar = document.getElementById('mobile-sidebar');
+         sidebar.classList.remove('is-open'); 
+         }
+       
+   div#mobile-sidebar(onclick='closeSidebar()') 
+    if !included 
+      include sidebar.pug 
+           
+  main#main      
+   if !included
+    .desktop-sidebar
+     include sidebar.pug 
+ 
+   include customers.pug
+        
+      
+
+ 
+    
+
+   

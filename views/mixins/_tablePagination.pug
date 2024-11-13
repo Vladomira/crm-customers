@@ -1,0 +1,27 @@
+mixin tablePagination(pages)
+  .pagination__info 
+  
+   p.pagination__desc Showing data #{pages.offset} to #{pages.offset + pages.limit-1} of #{pages.total}K entries
+   ul.pagination__buttons-list
+    li.pagination__item
+     button.pagination__btn(onclick="previousPage()")
+      img.pagination__img(alt='previous' src='/assets/icons/arrow-left.svg')
+    
+        
+    script.
+    - const totalPages = Array.from({ length: 256 / 8 }, (_, i) => i + 1)
+    each page, index in totalPages
+     if index < 4 || index === totalPages.length - 1
+      li.pagination__item
+        button.pagination__btn(class=(page === 1 ? "btn--active" : "btn"))= page
+     else if index === 4 
+      li.pagination__item
+        span.pagination__ellipsis ...
+      
+          
+
+    li.pagination__item
+     button.pagination__btn
+      img.pagination__img(alt='previous' src='/assets/icons/arrow-right.svg' )
+    
+    
